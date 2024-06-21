@@ -11,6 +11,7 @@ export class PrefilledVariables {
   remoteJid?: string;
   pushName?: string;
   messageType?: string;
+  keyId?: string;
   additionalData?: { [key: string]: any };
 }
 
