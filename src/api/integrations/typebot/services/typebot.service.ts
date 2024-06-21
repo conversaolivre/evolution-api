@@ -692,6 +692,7 @@ export class TypebotService {
     const unknown_message = findTypebot.unknown_message;
     const listening_from_me = findTypebot.listening_from_me;
     const messageType = this.getTypeMessage(msg.message).messageType;
+    const keyId = msg.key.id
 
     const session = sessions.find((session) => session.remoteJid === remoteJid);
 
@@ -816,6 +817,7 @@ export class TypebotService {
           pushName: msg.pushName,
           prefilledVariables: {
             messageType: messageType,
+            keyId: keyId
           },
         });
 
