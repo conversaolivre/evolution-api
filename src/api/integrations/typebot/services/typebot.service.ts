@@ -276,6 +276,7 @@ export class TypebotService {
       audioMessage: msg.audioMessage?.url,
       imageMessage: msg.imageMessage?.url,
       videoMessage: msg.videoMessage?.url,
+      base64: msg.message.base64?.text,
       documentMessage: msg.documentMessage?.fileName,
       contactMessage: msg.contactMessage?.displayName,
       locationMessage: msg.locationMessage?.degreesLatitude,
@@ -694,7 +695,7 @@ export class TypebotService {
     const messageType = this.getTypeMessage(msg.message).messageType;
     const keyId = msg.key.id
     const mimetype = (messageType=="audioMessage")?msg.message: ''
-    const base64 = (messageType=="audioMessage")?msg.message?.base64:''
+    const base64 = (messageType=="audioMessage")?msg.message?:''
 
     const session = sessions.find((session) => session.remoteJid === remoteJid);
 
