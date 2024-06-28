@@ -171,6 +171,7 @@ export class TypebotService {
     const prefilledVariables = {
       remoteJid: remoteJid,
       instanceName: instance.instanceName,
+      mimetype: data
     };
 
     if (variables?.length) {
