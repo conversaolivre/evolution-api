@@ -323,7 +323,7 @@ export class TypebotService {
 
     const types = this.getTypeMessage(msg);
 
-    const audioContent = 'ttttt'; //types.audioMessage;
+    const audioContent = types.audioMessage;
 
     this.logger.verbose('audio message URL: ' + audioContent);
 
@@ -773,7 +773,7 @@ export class TypebotService {
               if (version === 'latest') {
                 urlTypebot = `${url}/api/v1/sessions/${data.sessionId}/continueChat`;
                 reqData = {
-                  message: '776', //content,
+                  message: content,
                 };
               } else {
                 urlTypebot = `${url}/api/v1/sendMessage`;
@@ -876,7 +876,7 @@ export class TypebotService {
             if (version === 'latest') {
               urlTypebot = `${url}/api/v1/sessions/${data.sessionId}/continueChat`;
               reqData = {
-                message: '879', //content,
+                message: content,
               };
             } else {
               urlTypebot = `${url}/api/v1/sendMessage`;
@@ -966,7 +966,7 @@ export class TypebotService {
       if (version === 'latest') {
         urlTypebot = `${url}/api/v1/sessions/${session.sessionId.split('-')[1]}/continueChat`;
         reqData = {
-          message: '969', //content,
+          message: msg.message,
         };
       } else {
         urlTypebot = `${url}/api/v1/sendMessage`;
