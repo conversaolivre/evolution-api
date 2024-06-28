@@ -12,7 +12,6 @@ export class PrefilledVariables {
   pushName?: string;
   messageType?: string;
   keyId?: string;
-  sessaoId?: string;
   additionalData?: { [key: string]: any };
 }
 
