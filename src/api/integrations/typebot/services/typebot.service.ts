@@ -693,6 +693,10 @@ export class TypebotService {
     const listening_from_me = findTypebot.listening_from_me;
     const messageType = this.getTypeMessage(msg.message).messageType;
     const keyId = msg.key.id
+    const audioMessage = (messageType=="audioMessage") ? {
+        mimetype: msg.message.audioMessage.mediatype,
+        base64: msg.message.base64
+    } : ''
 
     const session = sessions.find((session) => session.remoteJid === remoteJid);
 
@@ -817,6 +821,7 @@ export class TypebotService {
           pushName: msg.pushName,
           prefilledVariables: {
             messageType: messageType,
+            audioMessage,
             keyId: keyId
           },
         });
