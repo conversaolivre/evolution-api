@@ -323,7 +323,7 @@ export class TypebotService {
 
     const types = this.getTypeMessage(msg);
 
-    const audioContent = types.audioMessage;
+    const audioContent = 'ttttt'; //types.audioMessage;
 
     this.logger.verbose('audio message URL: ' + audioContent);
 
@@ -966,7 +966,7 @@ export class TypebotService {
       if (version === 'latest') {
         urlTypebot = `${url}/api/v1/sessions/${session.sessionId.split('-')[1]}/continueChat`;
         reqData = {
-          message: base64??content,
+          message: content,
         };
       } else {
         urlTypebot = `${url}/api/v1/sendMessage`;
