@@ -276,7 +276,7 @@ export class TypebotService {
       audioMessage: msg.audioMessage?.url,
       imageMessage: msg.imageMessage?.url,
       videoMessage: msg.videoMessage?.url,
-      base64: msg.message,
+      base64: msg.audioMessage?.base64,
       documentMessage: msg.documentMessage?.fileName,
       contactMessage: msg.contactMessage?.displayName,
       locationMessage: msg.locationMessage?.degreesLatitude,
