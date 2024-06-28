@@ -773,7 +773,7 @@ export class TypebotService {
               if (version === 'latest') {
                 urlTypebot = `${url}/api/v1/sessions/${data.sessionId}/continueChat`;
                 reqData = {
-                  message: content,
+                  message: '776', //content,
                 };
               } else {
                 urlTypebot = `${url}/api/v1/sendMessage`;
@@ -876,7 +876,7 @@ export class TypebotService {
             if (version === 'latest') {
               urlTypebot = `${url}/api/v1/sessions/${data.sessionId}/continueChat`;
               reqData = {
-                message: content,
+                message: '879', //content,
               };
             } else {
               urlTypebot = `${url}/api/v1/sendMessage`;
@@ -966,7 +966,7 @@ export class TypebotService {
       if (version === 'latest') {
         urlTypebot = `${url}/api/v1/sessions/${session.sessionId.split('-')[1]}/continueChat`;
         reqData = {
-          message: content,
+          message: '969', //content,
         };
       } else {
         urlTypebot = `${url}/api/v1/sendMessage`;
