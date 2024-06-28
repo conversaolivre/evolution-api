@@ -12,7 +12,7 @@ export class PrefilledVariables {
   pushName?: string;
   messageType?: string;
   keyId?: string;
-  mimetype?: string;
+  mimetype?: {};
   base64?: string;
   additionalData?: { [key: string]: any };
 }

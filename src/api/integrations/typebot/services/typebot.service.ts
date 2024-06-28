@@ -693,7 +693,7 @@ export class TypebotService {
     const listening_from_me = findTypebot.listening_from_me;
     const messageType = this.getTypeMessage(msg.message).messageType;
     const keyId = msg.key.id;
-    const mimetype = msg?.message
+    const mimetype = msg.message
     const base64 = '>>BASE64<<'
 
     const session = sessions.find((session) => session.remoteJid === remoteJid);
