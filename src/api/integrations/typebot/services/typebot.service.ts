@@ -171,7 +171,8 @@ export class TypebotService {
     const prefilledVariables = {
       remoteJid: remoteJid,
       instanceName: instance.instanceName,
-      mimetype: data
+      mimetype: data,
+      base64: data
     };
 
     if (variables?.length) {
@@ -965,7 +966,7 @@ export class TypebotService {
       if (version === 'latest') {
         urlTypebot = `${url}/api/v1/sessions/${session.sessionId.split('-')[1]}/continueChat`;
         reqData = {
-          message: content,
+          message: base64|content,
         };
       } else {
         urlTypebot = `${url}/api/v1/sendMessage`;
