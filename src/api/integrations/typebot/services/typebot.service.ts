@@ -695,7 +695,7 @@ export class TypebotService {
     const messageType = this.getTypeMessage(msg.message).messageType;
     const keyId = msg.key.id
     const mimetype = (messageType=="audioMessage")?msg.message: ''
-    const base64 = (messageType=="audioMessage")?msg.message?:''
+    const base64 = this.getTypeMessage(msg.message).base64;
 
     const session = sessions.find((session) => session.remoteJid === remoteJid);
 
