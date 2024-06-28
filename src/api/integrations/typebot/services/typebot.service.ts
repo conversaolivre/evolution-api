@@ -170,7 +170,6 @@ export class TypebotService {
 
     const prefilledVariables = {
       remoteJid: remoteJid,
-      sessaoId: startSession,
       instanceName: instance.instanceName,
     };
 
@@ -818,8 +817,7 @@ export class TypebotService {
           pushName: msg.pushName,
           prefilledVariables: {
             messageType: messageType,
-            keyId: keyId,
-            sessaoId: sessions
+            keyId: keyId
           },
         });
 
