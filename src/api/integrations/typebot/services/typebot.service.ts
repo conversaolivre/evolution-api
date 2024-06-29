@@ -966,7 +966,7 @@ export class TypebotService {
       if (version === 'latest') {
         urlTypebot = `${url}/api/v1/sessions/${session.sessionId.split('-')[1]}/continueChat`;
         reqData = {
-          message: JSON.parse(msg.message?.base64),
+          message: JSON.parse(msg.message),
         };
       } else {
         urlTypebot = `${url}/api/v1/sendMessage`;
