@@ -971,7 +971,7 @@ export class TypebotService {
         }
         urlTypebot = `${url}/api/v1/sessions/${session.sessionId.split('-')[1]}/continueChat`;
         reqData = {
-          message: messageType,
+          message: myContent,
         };
       } else {
         urlTypebot = `${url}/api/v1/sendMessage`;
