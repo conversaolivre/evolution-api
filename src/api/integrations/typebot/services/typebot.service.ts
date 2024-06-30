@@ -964,9 +964,13 @@ export class TypebotService {
       let urlTypebot: string;
       let reqData: {};
       if (version === 'latest') {
+        this.logger.verbose('MESSAGE_TYPE (CONTINUE CHAT): ' + messageType);
+        if (messageType=='audioMessage') {
+          content = JSON.stringify(msg.message)
+        }
         urlTypebot = `${url}/api/v1/sessions/${session.sessionId.split('-')[1]}/continueChat`;
         reqData = {
-          message: JSON.stringify(msg.message),
+          message: content,
         };
       } else {
         urlTypebot = `${url}/api/v1/sendMessage`;
