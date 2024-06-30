@@ -969,7 +969,7 @@ export class TypebotService {
         if (messageType=='audioMessage') {
           myContent = JSON.stringify(msg.message)
         }
-        urlTypebot = `${url}/api/v1/sessions/${session.sessionId.split('-')[1]}/continueChat`;
+        urlTypebot = `${url}/api/v1/sessions/${session.sessionId.split('-')[1]}/continueChat?messageType=modificadoMessage`;
         reqData = {
           message: myContent,
           prefilledVariables: {
