@@ -962,15 +962,16 @@ export class TypebotService {
 
       const version = this.configService.get<Typebot>('TYPEBOT').API_VERSION;
       let urlTypebot: string;
+      let myContent = content;
       let reqData: {};
       if (version === 'latest') {
         this.logger.verbose('MESSAGE_TYPE (CONTINUE CHAT): ' + messageType);
         if (messageType=='audioMessage') {
-          content = JSON.stringify(msg.message)
+          myContent = JSON.stringify(msg.message)
         }
         urlTypebot = `${url}/api/v1/sessions/${session.sessionId.split('-')[1]}/continueChat`;
         reqData = {
-          message: content,
+          message: myContent,
         };
       } else {
         urlTypebot = `${url}/api/v1/sendMessage`;
