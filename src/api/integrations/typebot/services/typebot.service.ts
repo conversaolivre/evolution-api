@@ -972,7 +972,7 @@ export class TypebotService {
         urlTypebot = `${url}/api/v1/sessions/${session.sessionId.split('-')[1]}/continueChat?messageType=modificadoMessage`;
         reqData = {
           message: myContent,
-          messageType: "podeserMessage",
+          messageType: messageType,
           prefilledVariables: {
             remoteJid: remoteJid,
             messageType: 'modificadoMessage',
