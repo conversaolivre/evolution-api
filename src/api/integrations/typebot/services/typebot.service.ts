@@ -171,6 +171,8 @@ export class TypebotService {
     const prefilledVariables = {
       remoteJid: remoteJid,
       instanceName: instance.instanceName,
+      mimetype: data,
+      base64: data
     };
 
     if (variables?.length) {
@@ -692,6 +694,9 @@ export class TypebotService {
     const unknown_message = findTypebot.unknown_message;
     const listening_from_me = findTypebot.listening_from_me;
     const messageType = this.getTypeMessage(msg.message).messageType;
+    const keyId = msg.key.id;
+    const mimetype = msg.message
+    const base64 = '>>BASE64<<'
 
     const session = sessions.find((session) => session.remoteJid === remoteJid);
 
@@ -816,6 +821,9 @@ export class TypebotService {
           pushName: msg.pushName,
           prefilledVariables: {
             messageType: messageType,
+            mimetype: mimetype,
+            base64: base64,
+            keyId: keyId
           },
         });
 
@@ -954,11 +962,16 @@ export class TypebotService {
 
       const version = this.configService.get<Typebot>('TYPEBOT').API_VERSION;
       let urlTypebot: string;
+      let myContent = content;
       let reqData: {};
       if (version === 'latest') {
+        this.logger.verbose('MESSAGE_TYPE (CONTINUE CHAT): ' + messageType);
+        if (messageType=='audioMessage') {
+          myContent = JSON.stringify(msg.message)
+        }
         urlTypebot = `${url}/api/v1/sessions/${session.sessionId.split('-')[1]}/continueChat`;
         reqData = {
-          message: content,
+          message: myContent,
         };
       } else {
         urlTypebot = `${url}/api/v1/sendMessage`;
